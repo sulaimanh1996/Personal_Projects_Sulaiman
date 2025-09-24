@@ -1,0 +1,4 @@
+This folder contains test automation projects.  
+Each project has its own code, test scripts, docs, and configs.  
+Only project-specific files go here.  
+General settings, test results, and shared libraries are stored elsewhere for better organization.

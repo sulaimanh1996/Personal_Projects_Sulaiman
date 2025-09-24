@@ -1,0 +1,5 @@
+- Contains global settings for the project
+- Central place to adjust configuration
+- Changes here affect overall behavior
+- Easy access for customization
+- Keep settings organized and up-to-date

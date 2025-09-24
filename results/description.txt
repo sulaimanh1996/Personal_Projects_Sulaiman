@@ -1,0 +1,1 @@
+This folder contains various test results, including screenshots, logs, outputs, and reports generated during test automation runs.
