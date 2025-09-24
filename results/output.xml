@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.7 on win32)" generated="2025-09-24T15:31:55.482080" rpa="false" schemaversion="5">
+<suite id="s1" name="Test-Automation" source="C:\Users\sulai\OneDrive\Documents\Repo\Test-Automation\Test-Automation">
+<suite id="s1-s1" name="Project" source="C:\Users\sulai\OneDrive\Documents\Repo\Test-Automation\Test-Automation\project">
+<suite id="s1-s1-s1" name="Sauce Labs" source="C:\Users\sulai\OneDrive\Documents\Repo\Test-Automation\Test-Automation\project\sauce_labs">
+<suite id="s1-s1-s1-s1" name="Front Page" source="C:\Users\sulai\OneDrive\Documents\Repo\Test-Automation\Test-Automation\project\sauce_labs\front_page.robot">
+<kw name="Suite Setup" owner="startup_shutdown" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-24T15:31:55.724043" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>url=${URL}</arg>
+<arg>browser=${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-24T15:31:55.723752" elapsed="1.315528"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>${SELENIUM_SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-09-24T15:31:57.039522" elapsed="0.000372"/>
+</kw>
+<if>
+<branch type="IF" condition="${MAXIMIZE} == True">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-09-24T15:31:57.040297" elapsed="0.000087"/>
+</kw>
+<status status="NOT RUN" start="2025-09-24T15:31:57.040040" elapsed="0.000402"/>
+</branch>
+<status status="PASS" start="2025-09-24T15:31:57.040011" elapsed="0.000476"/>
+</if>
+<arg>URL=https://www.saucedemo.com/</arg>
+<arg>BROWSER=chrome</arg>
+<arg>SELENIUM_SPEED=0.2</arg>
+<arg>MAXIMIZE=False</arg>
+<doc>This keyword is executed once before all tests in the suite. Fill in the URL and browser type as needed.</doc>
+<status status="PASS" start="2025-09-24T15:31:55.722929" elapsed="1.317612"/>
+</kw>
+<test id="s1-s1-s1-s1-t1" name="As the user i should be able to log in to the webshop." line="9">
+<kw name="SL_Username" owner="sauce_labs_library">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T15:31:57.045486" level="INFO">Typing text 'standard_user' into text field 'user-name'.</msg>
+<arg>locator=user-name</arg>
+<arg>text=${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T15:31:57.045105" elapsed="0.693401"/>
+</kw>
+<arg>username=standard_user</arg>
+<status status="PASS" start="2025-09-24T15:31:57.044753" elapsed="0.693945"/>
+</kw>
+<kw name="SL_Password" owner="sauce_labs_library">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T15:31:57.739624" level="INFO">Typing text 'secret_sauce' into text field 'password'.</msg>
+<arg>locator=password</arg>
+<arg>text=${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T15:31:57.739364" elapsed="0.685931"/>
+</kw>
+<arg>password=secret_sauce</arg>
+<status status="PASS" start="2025-09-24T15:31:57.739018" elapsed="0.686498"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-24T15:31:58.426462" level="INFO">Clicking button 'login-button'.</msg>
+<arg>locator=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T15:31:58.426059" elapsed="0.681147"/>
+</kw>
+<status status="PASS" start="2025-09-24T15:31:57.040640" elapsed="2.067100"/>
+</test>
+<kw name="Suite Teardown" owner="startup_shutdown" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-09-24T15:31:59.113267" elapsed="2.305463"/>
+</kw>
+<doc>This keyword is executed once after all tests in the suite.</doc>
+<status status="PASS" start="2025-09-24T15:31:59.112969" elapsed="2.305948"/>
+</kw>
+<status status="PASS" start="2025-09-24T15:31:55.520318" elapsed="5.898686"/>
+</suite>
+<status status="PASS" start="2025-09-24T15:31:55.513066" elapsed="5.910872"/>
+</suite>
+<status status="PASS" start="2025-09-24T15:31:55.509862" elapsed="5.917188"/>
+</suite>
+<status status="PASS" start="2025-09-24T15:31:55.485625" elapsed="5.943558"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test-Automation" id="s1" pass="1" fail="0" skip="0">Test-Automation</stat>
+<stat name="Project" id="s1-s1" pass="1" fail="0" skip="0">Test-Automation.Project</stat>
+<stat name="Sauce Labs" id="s1-s1-s1" pass="1" fail="0" skip="0">Test-Automation.Project.Sauce Labs</stat>
+<stat name="Front Page" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">Test-Automation.Project.Sauce Labs.Front Page</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
