@@ -1,6 +1,5 @@
 *** Settings ***
-Resource    ../settings/libraries_and_resources.resource
-
+Library    SeleniumLibrary
 
 *** Keywords ***
 Suite Setup
