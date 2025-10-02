@@ -1,0 +1,5 @@
+run test: npx playwright test
+initial setup: npx create-playwright@latest
+show report: npx playwright show-report
+run test non-headless: npx playwright test --headed
+test.only when you only want to run that test
