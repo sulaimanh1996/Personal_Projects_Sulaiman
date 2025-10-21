@@ -1,0 +1,1 @@
+playwright codegen demo.playwright.dev/todomvc - records all the actions and converts into code
