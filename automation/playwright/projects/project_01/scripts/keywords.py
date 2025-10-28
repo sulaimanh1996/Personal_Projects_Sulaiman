@@ -3,7 +3,12 @@ from playwright.sync_api import sync_playwright
 
 username = "standard_user"
 password = "secret_sauce"
-AUTH_FILE = "auth.json"   # file where session state will be stored
+AUTH_FILE = "auth.json"  # file where session state will be stored
+
+
+def click_and_back(page, product_name: str):
+    page.get_by_role("link", name=product_name).click()
+    page.get_by_role("button", name="<- Back").click()
 
 
 def log_in():
@@ -45,28 +50,30 @@ def products():
         page = context.new_page()
 
         page.goto("https://www.saucedemo.com/v1/inventory.html")
-        page.get_by_role("link", name="Sauce Labs Backpack").click()
-        page.get_by_role("button", name="<- Back").click()
-        page.get_by_role("link", name="Sauce Labs Bolt T-Shirt").click()
-        page.get_by_role("button", name="<- Back").click()
-        page.get_by_role("link", name="Sauce Labs Onesie").click()
-        page.get_by_role("button", name="<- Back").click()
-        page.get_by_role("link", name="Sauce Labs Bike Light").click()
-        page.get_by_role("button", name="<- Back").click()
-        page.get_by_role("link", name="Sauce Labs Fleece Jacket").click()
-        page.get_by_role("button", name="<- Back").click()
-        page.get_by_role("link", name="Test.allTheThings() T-Shirt (").click()
-        page.get_by_role("button", name="<- Back").click()
+        click_and_back(page, "Sauce Labs Backpack")
+        click_and_back(page, "Sauce Labs Bolt T-Shirt")
+        click_and_back(page, "Sauce Labs Onesie")
+        click_and_back(page, "Sauce Labs Bike Light")
+        click_and_back(page, "Sauce Labs Fleece Jacket")
+        click_and_back(page, "Test.allTheThings() T-Shirt (")
 
-        page.locator("div").filter(has_text=re.compile(r"^\$29\.99ADD TO CART$")).get_by_role("button").click()
+        page.locator("div").filter(
+            has_text=re.compile(r"^\$29\.99ADD TO CART$")
+        ).get_by_role("button").click()
         page.get_by_role("button", name="REMOVE").click()
         page.locator("div:nth-child(3) > .pricebar > .btn_primary").click()
         page.get_by_role("button", name="REMOVE").click()
-        page.locator("div").filter(has_text=re.compile(r"^\$7\.99ADD TO CART$")).get_by_role("button").click()
+        page.locator("div").filter(
+            has_text=re.compile(r"^\$7\.99ADD TO CART$")
+        ).get_by_role("button").click()
         page.get_by_role("button", name="REMOVE").click()
-        page.locator("div").filter(has_text=re.compile(r"^\$9\.99ADD TO CART$")).get_by_role("button").click()
+        page.locator("div").filter(
+            has_text=re.compile(r"^\$9\.99ADD TO CART$")
+        ).get_by_role("button").click()
         page.get_by_role("button", name="REMOVE").click()
-        page.locator("div").filter(has_text=re.compile(r"^\$49\.99ADD TO CART$")).get_by_role("button").click()
+        page.locator("div").filter(
+            has_text=re.compile(r"^\$49\.99ADD TO CART$")
+        ).get_by_role("button").click()
         page.get_by_role("button", name="REMOVE").click()
         page.locator("div:nth-child(6) > .pricebar > .btn_primary").click()
         page.get_by_role("button", name="REMOVE").click()
