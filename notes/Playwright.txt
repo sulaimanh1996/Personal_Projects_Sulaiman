@@ -1,6 +1,6 @@
-### Playwright 
+### PLAYWRIGHT
 
-## Setup Guide
+## SETUP GUIDE
 
 # ENVIRONMENT SETUP
 mkdir project_name                # Create a new folder
@@ -19,28 +19,40 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 # INSTALL DEPENDENCIES
 pip install playwright             # Install Playwright
 pip install -U playwright          # Update Playwright
-pip install pytest-playwright      # Add Playwright support for pytest
+pip install pytest-playwright      # Add Playwright integration for Pytest
 
 # INSTALL BROWSERS & VERIFY INSTALLATION
 playwright install                 # Install all browsers (Chromium, Firefox, WebKit)
-python -m playwright --version     # Check Playwright version
+python -m playwright --version     # Check installed Playwright version
 
 # FILE MANAGEMENT
 type nul > first_test.py           # Create a new file in CMD
+ni test_sample.py -i file          # Create a new file in PowerShell
 
-## difference playwright and playwright with pytest
-# playwright:
-- pip install playwright
-- core playwright api
-- browser automation and api features
-- not pytest features
+------------------------------------------------------------
 
-# playwright with pytest:
-- pip install pytest-playwright
-- adds pytest ingegration (fictures, CLI support)
-- write test using pytest structure
-- ficture like page browser without manually launching the browser
-- command with pytest
+## DIFFERENCE: Playwright vs. Pytest-Playwright
 
-# you can install both playwright and playwright pytest, it doesnt conflict
-# 
+# Playwright:
+- Installed via: pip install playwright
+- Provides the core Playwright API
+- Used for browser automation and API testing
+- Does NOT include pytest integration
+
+# Pytest-Playwright:
+- Installed via: pip install pytest-playwright
+- Extends Playwright with pytest features (fixtures, CLI support)
+- Allows writing tests using pytest structure
+- Provides built-in fixtures like "page" and "browser" (no manual launch needed)
+- Tests are executed with the pytest command
+
+# You can safely install both together (no conflicts)
+# To view details about the installation:
+pip show pytest-playwright
+
+------------------------------------------------------------
+
+## RUNNING TESTS WITH PYTEST
+# Test file names must start with "test_"
+pytest test_sample.py              # Run a specific test file
+pytest                             # Run all tests in the current directory
