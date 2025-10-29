@@ -188,3 +188,4 @@ def CHECKOUT():
 
         # * checkout
         page.click("text=CHECKOUT")                                     
+
