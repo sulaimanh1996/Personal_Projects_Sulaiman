@@ -4,7 +4,7 @@ from playwright.sync_api import sync_playwright
 # ════════════════════════ VARIABLES ════════════════════════
 
 # ════════════════════════ KEYWORDS ════════════════════════
-class log_in_process():
+class hamgurger_menu_class():
     def __init__(self, page):
         self.page = page
     

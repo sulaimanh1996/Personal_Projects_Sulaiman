@@ -1,1 +1,1 @@
-# Test cases package
+# Project root package
