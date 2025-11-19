@@ -37,44 +37,43 @@ test('Log In', async ({page})=>{
 
 test('Product Page', async ({page})=>{
 
-    //nivate to page and login
+    //navigate to page and login
     await page.goto('https://www.saucedemo.com/');
     await page.fill('#user-name', 'standard_user');
     await page.fill('[name="password"]', 'secret_sauce')
     await page.click('#login-button');
 
-    //view product Sauce Labs Backpack
+    //view/Add/Remove product Sauce Labs Backpack
     await page.click('text=Sauce Labs Backpack');
     await page.click('text=Add to cart');
     await page.click('text=Remove');
-    await page.screenshot();
     await page.goBack();
 
-    //view product Sauce Labs Bike Light
+    //view/Add/Remove product Sauce Labs Bike Light
     await page.click('text=Sauce Labs Bike Light');
     await page.click('text=Add to cart');
     await page.click('text=Remove');
     await page.goBack(); 
 
-    //view product Sauce Labs Bolt T-Shirt
+    //view/Add/Remove product Sauce Labs Bolt T-Shirt
     await page.click('text=Sauce Labs Bolt T-Shirt');
     await page.click('text=Add to cart');
     await page.click('text=Remove');
     await page.goBack(); 
 
-    //view product Sauce Labs Fleece Jacket
+    //view/Add/Remove product Sauce Labs Fleece Jacket
     await page.click('text=Sauce Labs Fleece Jacket');
     await page.click('text=Add to cart');
     await page.click('text=Remove');
     await page.goBack(); 
 
-    //view product Sauce Labs Onesie
+    //view/Add/Remove product Sauce Labs Onesie
     await page.click('text=Sauce Labs Onesie');
     await page.click('text=Add to cart');
     await page.click('text=Remove');
     await page.goBack(); 
 
-    //view product Test.allTheThings() T-Shirt (Red)
+    //view/Add/Remove product Test.allTheThings() T-Shirt (Red)
     await page.click('text=Test.allTheThings() T-Shirt (Red)');
     await page.click('text=Add to cart');
     await page.click('text=Remove');
