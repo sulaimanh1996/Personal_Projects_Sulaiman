@@ -4,6 +4,7 @@ import { loginPage } from "../library/login";
 export class hamburgerMenu {
     constructor(private page:Page) {}
 
+
 //? Selectors
     private aboutLink = '#about_sidebar_link';
     private logoutLink = '#logout_sidebar_link'
@@ -13,6 +14,7 @@ export class hamburgerMenu {
     private username = 'standard_user'
     private password = 'secret_sauce'
 
+    
 //? Methods
     async aboutSidebar() {
         await this.page.click(this.hamburgerButton);

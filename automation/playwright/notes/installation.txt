@@ -1,2 +1,0 @@
-npm init playwright@latest – setup playwright
-npx playwright install – browser installation

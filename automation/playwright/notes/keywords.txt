@@ -1,4 +1,0 @@
-await page.goto('https://www.saucedemo.com/'); = go to page
-await page.fill('[name="user-name"]', 'standard_user'); = fill in field using the name attribute
-await page.fill('#user-name', 'standard_user'); = fill in the field using the id attribute
-await page.fill('[data-test="username"]', 'standard_user'); = fill in the field using data-test attribute

@@ -9,6 +9,12 @@ import { test } from '@playwright/test'
 const wrongInput = 'test';
 const correctUsername = 'standard_user';
 const correctPassword = 'secret_sauce';
+const productOne = 'Sauce Labs Backpack';
+const productTwo = 'Sauce Labs Bike Light';
+const productThree = 'Sauce Labs Bolt T-Shirt';
+const productFour = 'Sauce Labs Fleece Jacket';
+const productFive = 'Sauce Labs Onesie';
+const productSix = 'Test.allTheThings() T-Shirt (Red)';
 
 
 //? Tests
@@ -28,7 +34,6 @@ test('as the user i would try to log in', async ({page})=>{
     await login.login(correctUsername,correctPassword);
 })
 
-
 test('as the user i would navigate the products page', async ({page})=>{
     const products = new productsPage(page);
     const login = new loginPage(page);
@@ -38,14 +43,13 @@ test('as the user i would navigate the products page', async ({page})=>{
     await login.login(correctUsername,correctPassword);
 
 // --- Navigate through products, view them, add them and then remove them from the basket through the product page ---
-    await products.viewAddRemoveProduct('Sauce Labs Backpack');
-    await products.viewAddRemoveProduct('Sauce Labs Bike Light');
-    await products.viewAddRemoveProduct('Sauce Labs Bolt T-Shirt');
-    await products.viewAddRemoveProduct('Sauce Labs Fleece Jacket');
-    await products.viewAddRemoveProduct('Sauce Labs Onesie');
-    await products.viewAddRemoveProduct('Test.allTheThings() T-Shirt (Red)');
+    await products.viewAddRemoveProduct(productOne);
+    await products.viewAddRemoveProduct(productTwo);
+    await products.viewAddRemoveProduct(productThree);
+    await products.viewAddRemoveProduct(productFour);
+    await products.viewAddRemoveProduct(productFive);
+    await products.viewAddRemoveProduct(productSix);
 })
-
 
 test('as the user i would use the hamburger menu', async ({page})=>{
     const hamburger = new hamburgerMenu(page);
