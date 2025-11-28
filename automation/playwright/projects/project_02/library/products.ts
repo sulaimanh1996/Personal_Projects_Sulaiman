@@ -29,6 +29,13 @@ export class productsPage {
         await this.page.locator('[data-test="remove"]').click();
     }
 
+    async changeProductsOrder() {
+        await this.page.locator('[data-test="product-sort-container"]').selectOption('za');
+        await this.page.locator('[data-test="product-sort-container"]').selectOption('lohi');
+        await this.page.locator('[data-test="product-sort-container"]').selectOption('hilo');
+        await this.page.locator('[data-test="product-sort-container"]').selectOption('az');
+    }
+
     async productProcesBackpack() {
         await this.addMainPageProduct(this.productNames[0]);    
         await this.removeMainPageProduct(this.productNames[0]);
@@ -81,5 +88,14 @@ export class productsPage {
         await this.addToCartProductSpecificPage();
         await this.removeFromCartProductSpecificPage();
         await this.backButtonProductPage();
+    }
+
+    async addAllProducts() {
+        await this.addMainPageProduct(this.productNames[0]);
+        await this.addMainPageProduct(this.productNames[1]);
+        await this.addMainPageProduct(this.productNames[2]);
+        await this.addMainPageProduct(this.productNames[3]);
+        await this.addMainPageProduct(this.productNames[4]);
+        await this.addMainPageProduct(this.productNames[5]);
     }
 }
