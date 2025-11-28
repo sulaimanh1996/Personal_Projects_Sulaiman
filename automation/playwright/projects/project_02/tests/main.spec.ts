@@ -71,7 +71,7 @@ test('As the user i want to be able to use the cart', async ({page})=>{
     await cart.checkout();
 })
 
-test('As the user i want to be able to finalize my purchase process', async ({page})=>{
+test('As the user i want to be able to finalize my purchase proces', async ({page})=>{
     const general = new generalKeywords(page)
     const login = new loginPage(page);
     const purchase = new purchasePage(page);
