@@ -42,7 +42,5 @@ printAge(5);
 import { printHeight } from "../helpers/printHelper.js";
 printHeight(177);
 
-// Import everything
 import * as helper from "../helpers/printHelper.js"
-helper.printHeight(5)
-
+helper.printHeight(177)
