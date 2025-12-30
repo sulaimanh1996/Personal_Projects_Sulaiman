@@ -1,5 +1,5 @@
 import {Page, expect} from '@playwright/test';
-import { loginPage } from "../library/login";
+import { loginPage } from "./login";
 export class hamburgerMenu {
     constructor(private page: Page) {}
 
