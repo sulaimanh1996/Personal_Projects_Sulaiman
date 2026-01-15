@@ -1,7 +1,7 @@
 # Playwright Cheat Sheet — Simple & Beginner Friendly
 
 await page.goto('https:pagetogoto.com); - navigate to this page
-await page.locator('a.namelocator').click(); - click on link (a)
+await page.click('a[href="https://demos.bellatrix.solutions/"]') - click on link
 await page.locator('.namelocator').click(); - click on something without specific element naming
 await page.close(); - closes page
 await page.fill('#idname','whattofillin'); - fills in a locator with id which is #
