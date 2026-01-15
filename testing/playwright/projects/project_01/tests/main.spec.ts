@@ -6,16 +6,27 @@ import { cartPage } from "../library/cart";
 import { purchasePage } from "../library/purchase";
 import { test } from '@playwright/test'
 
-const productNames: string[] = ['sauce-labs-backpack', 'sauce-labs-bike-light', 'sauce-labs-bolt-t-shirt', 'sauce-labs-fleece-jacket', 'sauce-labs-onesie', 'test.allthethings()-t-shirt-(red)'];
-
 test.describe('As the user i want to use the enitre website', ()=>{
-    test('As the user i want to be able to login', async ({page})=>{
-        const general = new generalKeywords(page)
-        const login = new loginPage(page);
 
+    let general: generalKeywords;
+    let login: loginPage;
+    let cart: cartPage;
+    let products: productsPage;
+    let hamburger: hamburgerMenu;
+    let purchase: purchasePage;
+
+    test.beforeEach(async ({ page }) => {
+        general = new generalKeywords(page);
+        login = new loginPage(page);
+        cart = new cartPage(page);
+        products = new productsPage(page);
+        hamburger = new hamburgerMenu(page);
+        purchase = new purchasePage(page);
         await general.navigateToSite();
-        await login.noInput();
+    });
 
+    test('As the user i want to be able to login', async ()=>{
+        await login.noInput();
         await login.noPassword();
         await login.noUsername();
         await login.wrongPassword();
@@ -23,28 +34,16 @@ test.describe('As the user i want to use the enitre website', ()=>{
         await login.correctLogin();
     })
 
-    test('As the user i want to be able to use the hamburger menu', async ({page})=>{
-        const general = new generalKeywords(page)
-        const login = new loginPage(page);
-        const hamburger = new hamburgerMenu(page);
-
-        await general.navigateToSite();
+    test('As the user i want to be able to use the hamburger menu', async ()=>{
         await login.correctLogin();
-
         await hamburger.hamburgerAbout();
         await hamburger.hamburgerLogout();
         await hamburger.hamburgerAllitems();
         await hamburger.hamburgerCloseMenu();
     })
 
-    test('As the user i want to be able to use the products page', async ({page})=>{
-        const general = new generalKeywords(page)
-        const login = new loginPage(page);
-        const products = new productsPage(page);
-
-        await general.navigateToSite();
+    test('As the user i want to be able to use the products page', async ()=>{
         await login.correctLogin();
-
         await products.changeProductsOrder();
         await products.productProcesBackpack();
         await products.productProcesBikelight();
@@ -54,15 +53,8 @@ test.describe('As the user i want to use the enitre website', ()=>{
         await products.productProcesTShirt();  
     })
 
-    test('As the user i want to be able to use the cart', async ({page})=>{
-        const general = new generalKeywords(page)
-        const login = new loginPage(page);
-        const cart = new cartPage(page);
-        const products = new productsPage(page);
-
-        await general.navigateToSite();
+    test('As the user i want to be able to use the cart', async ()=>{
         await login.correctLogin();
-
         await products.addAllProducts();
         await cart.clickOnShoppingCart();
         await cart.removeProductsFromCart();
@@ -72,16 +64,8 @@ test.describe('As the user i want to use the enitre website', ()=>{
         await cart.checkout();
     })
 
-    test('As the user i want to be able to finalize my purchase process', async ({page})=>{
-        const general = new generalKeywords(page)
-        const login = new loginPage(page);
-        const purchase = new purchasePage(page);
-        const products = new productsPage(page);
-        const cart = new cartPage(page);
-
-        await general.navigateToSite();
+    test('As the user i want to be able to finalize my purchase process', async ()=>{
         await login.correctLogin();
-
         await products.addAllProducts();
         await cart.clickOnShoppingCart();
         await cart.checkout();
@@ -89,7 +73,6 @@ test.describe('As the user i want to use the enitre website', ()=>{
         await purchase.noLastName();
         await purchase.noPostalCode();
         await purchase.CorrectDetails();
-
         await purchase.finishingPurchase();
     })
 })
