@@ -4,10 +4,9 @@ import { hamburgerMenu } from "../library/hamburger";
 import { generalKeywords } from '../library/general'
 import { cartPage } from "../library/cart";
 import { purchasePage } from "../library/purchase";
-import { test } from '@playwright/test'
+import { test } from '@playwright/test';
 
 test.describe('As the user i want to use the enitre website', ()=>{
-
     let general: generalKeywords;
     let login: loginPage;
     let cart: cartPage;
